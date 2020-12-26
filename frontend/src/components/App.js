@@ -12,7 +12,7 @@ import "./charts-theme";
 import config from "./config";
 import Dropdown from "react-dropdown";
 import formatNum from "./format-number";
-  
+
 import axios from "axios";
 
 import UserImg from "../assets/images/user-img-placeholder.jpeg";
@@ -40,24 +40,24 @@ class App extends Component {
             total_revenue: null,
             total_customer: null,
             total_order: null,
-            top_products: [{"nama":"","jumlah_terjual":null}],
-            top_customers:[{"nama":"", total_beli:null}]
+            top_products: [{ nama: "", jumlah_terjual: null }],
+            top_customers: [{ nama: "", total_beli: null }],
         };
     }
 
     componentDidMount() {
         this.loadData();
-      }
-    
-      loadData = async () => {
-        await axios.get(`http://localhost:8000/Dashboard/`).then(res => {
-          const data = res.data;
-          this.setState({
-              total_revenue: data[0].total_revenue,
-              total_customer: data[0].total_customer,
-              total_order: data[0].total_order,
-              top_products: JSON.parse(data[0].top_products),
-              top_customers: JSON.parse(data[0].top_customers)
+    }
+
+    loadData = async () => {
+        await axios.get(`http://localhost:8000/Dashboard/`).then((res) => {
+            const data = res.data;
+            this.setState({
+                total_revenue: data[0].total_revenue,
+                total_customer: data[0].total_customer,
+                total_order: data[0].total_order,
+                top_products: JSON.parse(data[0].top_products),
+                top_customers: JSON.parse(data[0].top_customers),
             });
         });
     };
@@ -180,111 +180,111 @@ class App extends Component {
         ordersTrendRegion.push(
             {
                 id: "01",
-                value: orderesTrendrr,
-            },
-            {
-                id: "02",
-                value: orderesTrendap,
-            },
-            {
-                id: "03",
-                value: orderesTrendam,
-            },
-            {
-                id: "04",
-                value: orderesTrendpa,
-            },
-            {
-                id: "05",
                 value: orderesTrendac,
             },
             {
-                id: "06",
-                value: orderesTrendro,
-            },
-            {
-                id: "07",
-                value: orderesTrendmt,
-            },
-            {
-                id: "08",
-                value: orderesTrendto,
-            },
-            {
-                id: "09",
-                value: orderesTrendma,
-            },
-            {
-                id: "10",
-                value: orderesTrendpi,
-            },
-            {
-                id: "11",
-                value: orderesTrendce,
-            },
-            {
-                id: "12",
-                value: orderesTrendrn,
-            },
-            {
-                id: "13",
-                value: orderesTrendpb,
-            },
-            {
-                id: "14",
-                value: orderesTrendpe,
-            },
-            {
-                id: "15",
+                id: "02",
                 value: orderesTrendal,
             },
             {
-                id: "16",
-                value: orderesTrendse,
+                id: "03",
+                value: orderesTrendap,
             },
             {
-                id: "17",
+                id: "04",
+                value: orderesTrendam,
+            },
+            {
+                id: "05",
                 value: orderesTrendba,
             },
             {
-                id: "18",
-                value: orderesTrendgo,
+                id: "06",
+                value: orderesTrendce,
             },
             {
-                id: "19",
+                id: "07",
                 value: orderesTrenddf,
             },
             {
-                id: "20",
-                value: orderesTrendmg,
-            },
-            {
-                id: "21",
-                value: orderesTrendms,
-            },
-            {
-                id: "22",
+                id: "08",
                 value: orderesTrendes,
             },
             {
-                id: "23",
-                value: orderesTrendrj,
+                id: "09",
+                value: orderesTrendgo,
             },
             {
-                id: "24",
-                value: orderesTrendsp,
+                id: "10",
+                value: orderesTrendma,
             },
             {
-                id: "25",
+                id: "11",
+                value: orderesTrendmt,
+            },
+            {
+                id: "12",
+                value: orderesTrendms,
+            },
+            {
+                id: "13",
+                value: orderesTrendmg,
+            },
+            {
+                id: "14",
+                value: orderesTrendpa,
+            },
+            {
+                id: "15",
+                value: orderesTrendpb,
+            },
+            {
+                id: "16",
                 value: orderesTrendpr,
             },
             {
-                id: "26",
+                id: "17",
+                value: orderesTrendpe,
+            },
+            {
+                id: "18",
+                value: orderesTrendpi,
+            },
+            {
+                id: "19",
+                value: orderesTrendrj,
+            },
+            {
+                id: "20",
+                value: orderesTrendrn,
+            },
+            {
+                id: "21",
+                value: orderesTrendrs,
+            },
+            {
+                id: "22",
+                value: orderesTrendro,
+            },
+            {
+                id: "23",
+                value: orderesTrendrr,
+            },
+            {
+                id: "24",
                 value: orderesTrendsc,
             },
             {
+                id: "25",
+                value: orderesTrendsp,
+            },
+            {
+                id: "26",
+                value: orderesTrendse,
+            },
+            {
                 id: "27",
-                value: orderesTrendrs,
+                value: orderesTrendto,
             }
         );
 
@@ -304,7 +304,7 @@ class App extends Component {
             ordersTrendRegion: ordersTrendRegion,
             selectedValue: selectedValue,
             total_revenue: formatNum(this.state.total_revenue),
-            total_customer: formatNum(this.state.total_customer)
+            total_customer: formatNum(this.state.total_customer),
         });
     };
 
@@ -448,13 +448,19 @@ class App extends Component {
                                 <Container className="card-value pt-4">
                                     <table class="table table-sm table-dark">
                                         <tbody>
-                                            {this.state.top_products.map((val, idx) => (
-                                                <tr>
-                                                    <th scope="row">{idx+1}</th>
-                                                    <td>{val.nama}</td>
-                                                    <td>{val.jumlah_terjual}</td>
-                                                </tr>
-                                            ))}
+                                            {this.state.top_products.map(
+                                                (val, idx) => (
+                                                    <tr>
+                                                        <th scope="row">
+                                                            {idx + 1}
+                                                        </th>
+                                                        <td>{val.nama}</td>
+                                                        <td>
+                                                            {val.jumlah_terjual}
+                                                        </td>
+                                                    </tr>
+                                                )
+                                            )}
                                         </tbody>
                                     </table>
                                 </Container>
@@ -471,13 +477,19 @@ class App extends Component {
                                 <Container className="card-value pt-4">
                                     <table class="table table-sm table-dark">
                                         <tbody>
-                                            {this.state.top_customers.map((val, idx) => (
-                                                <tr>
-                                                    <th scope="row">{idx+1}</th>
-                                                    <td>{val.nama}</td>
-                                                    <td>{val.total_beli}</td>
-                                                </tr>
-                                            ))}
+                                            {this.state.top_customers.map(
+                                                (val, idx) => (
+                                                    <tr>
+                                                        <th scope="row">
+                                                            {idx + 1}
+                                                        </th>
+                                                        <td>{val.nama}</td>
+                                                        <td>
+                                                            {val.total_beli}
+                                                        </td>
+                                                    </tr>
+                                                )
+                                            )}
                                         </tbody>
                                     </table>
                                 </Container>
