@@ -47,42 +47,28 @@ class App extends Component {
 
     componentDidMount() {
         this.loadData();
-<<<<<<< HEAD
     }
 
     loadData = async () => {
         await axios.get(`http://localhost:8000/Dashboard/`).then((res) => {
-            const data = res.data;
+            const data = res.data[0];
             this.setState({
-                total_revenue: data[0].total_revenue,
-                total_customer: data[0].total_customer,
-                total_order: data[0].total_order,
-                top_products: JSON.parse(data[0].top_products),
-                top_customers: JSON.parse(data[0].top_customers),
-=======
-      }
-    
-      loadData = async () => {
-        await axios.get(`http://localhost:8000/Dashboard/`).then(res => {
-          const data = res.data[0];
-          this.setState({
-              total_revenue: data.total_revenue,
-              total_customer: data.total_customer,
-              total_order: data.total_order,
-              top_products: JSON.parse(data.top_products),
-              top_customers: JSON.parse(data.top_customers)
->>>>>>> 78fe56f251551041f05e24a3190f06f06099c5e3
+                total_revenue: data.total_revenue,
+                total_customer: data.total_customer,
+                total_order: data.total_order,
+                top_products: JSON.parse(data.top_products),
+                top_customers: JSON.parse(data.top_customers),
             });
-            const trend_seller = []
-            const data_trend_seller = JSON.parse(data.trend_seller)
-            for (let i = 0; i < 5; i++){
+            const trend_seller = [];
+            const data_trend_seller = JSON.parse(data.trend_seller);
+            for (let i = 0; i < 5; i++) {
                 trend_seller.push({
                     label: data_trend_seller[i].nama,
                     value: data_trend_seller[i].total_order,
                     displayValue: `${data_trend_seller[i].total_order} orders`,
                 });
             }
-            this.setState({ordersTrendStore: trend_seller})
+            this.setState({ ordersTrendStore: trend_seller });
         });
     };
 
