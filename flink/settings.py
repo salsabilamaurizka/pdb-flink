@@ -25,7 +25,7 @@ SECRET_KEY = ')ko+dwbe2z+%om7e#_66q)%)km$v0rbgmncf^zc$+q4xm1gy_!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pdb-flink.herokuapp.com']
 
 
 # Application definition
