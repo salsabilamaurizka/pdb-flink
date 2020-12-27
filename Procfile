@@ -1,0 +1,1 @@
+web: gunicorn flink.wsgi --log-file -
