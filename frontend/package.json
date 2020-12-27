@@ -1,6 +1,5 @@
 {
   "name": "ecommerce-dashboard",
-  "homepage": "https://www.fusioncharts.com/demos/dashboards/online-retail-dashboard/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
