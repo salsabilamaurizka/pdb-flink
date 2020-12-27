@@ -1,16 +1,21 @@
 from django.shortcuts import render
 from .models import Dashboard
 from django.http import JsonResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+import json
 import requests
 
 # Create your views here.
 response = {}
 def showDashboard(request):
-	return JsonResponse(list(Dashboard.objects.all().values('total_revenue','total_customer','total_order','top_customers','top_products','trend_seller','trend_region')), safe=False)
+    data = Dashboard.objects.all()
+    return JsonResponse(list(data.values('total_revenue','total_customer','total_order','top_customers','top_products','trend_seller','trend_region'))[-1], safe=False)
 
-def getData(request):
-    #LINK NYA NTAR GANTIIIIIIIIIIII
-    data = requests.get('https://www.googleapis.com/books/v1/volumes?q=quilting').json()
+@api_view(['POST'])
+def addData(request):
+    data = request.data
     dashboard = Dashboard(
             total_revenue = data['total_revenue'],
             total_customer = data['total_customer'],
@@ -20,6 +25,8 @@ def getData(request):
             trend_seller = data['trend_seller'],
             trend_region = data['trend_region']
         )
-    dashboard.save()
-    return JsonResponse({'message':'Success!'}, status = 200)
-
+    try:
+        dashboard.save()
+        return Response(data, status=status.HTTP_201_CREATED)
+    except Exception as e:
+        return Response(e, status=status.HTTP_400_BAD_REQUEST)

@@ -11,16 +11,3 @@ class Dashboard(models.Model):
     trend_region = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
 
-# class Customer(models.Model):
-#     nama = models.CharField()
-#     total_beli = models.PositiveIntegerField()
-
-# class Product(models.Model):
-#     nama = models.CharField()
-#     jumlah_terjual = models.PositiveIntegerField()
-
-# class Seller(models.Model):
-#     nama = models.CharField()
-#     total_order = models.PositiveIntegerField()
-
-# class Region(models.Model):
