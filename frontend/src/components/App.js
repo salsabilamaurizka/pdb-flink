@@ -80,7 +80,7 @@ class App extends Component {
     }
 
     loadData = async () => {
-        await axios.get(`http://localhost:8000/Dashboard/`).then((res) => {
+        await axios.get(`/Dashboard/`).then((res) => {
             const data = res.data;
             this.setState({
                 total_revenue: data.total_revenue,
