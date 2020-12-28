@@ -88,13 +88,13 @@ class App extends Component {
                     total_revenue: data.total_revenue,
                     total_customer: data.total_customer,
                     total_order: data.total_order,
-                    top_products: JSON.parse(data.top_products),
-                    top_customers: JSON.parse(data.top_customers),
+                    top_products: JSON.parse(data.top_products.replaceAll("\'","\"")),
+                    top_customers: JSON.parse(data.top_customers.replaceAll("\'","\"")),
                 });
                 const trend_seller = [];
                 const trend_region = [];
-                const data_trend_seller = JSON.parse(data.trend_seller);
-                const data_trend_region = JSON.parse(data.trend_region);
+                const data_trend_seller = JSON.parse(data.trend_seller.replaceAll("\'","\""));
+                const data_trend_region = JSON.parse(data.trend_region.replaceAll("\'","\""));
                 for (let i = 0; i < 5; i++) {
                     trend_seller.push({
                         label: data_trend_seller[i].nama,
