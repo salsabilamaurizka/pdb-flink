@@ -25,7 +25,7 @@ SECRET_KEY = ')ko+dwbe2z+%om7e#_66q)%)km$v0rbgmncf^zc$+q4xm1gy_!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -54,9 +54,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'flink.urls'
 

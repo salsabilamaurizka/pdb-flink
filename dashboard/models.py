@@ -9,5 +9,5 @@ class Dashboard(models.Model):
     top_customers = models.TextField()
     trend_seller = models.TextField()
     trend_region = models.TextField()
-    created_date = models.DateTimeField(auto_now_add=True)
+    # created_date = models.DateTimeField(auto_now_add=True)
 
