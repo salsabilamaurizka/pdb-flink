@@ -9,9 +9,9 @@ import BrazilRegion from "fusionmaps/maps/es/fusioncharts.brazil";
 import ReactFC from "react-fusioncharts";
 import "./charts-theme";
 
-import config from "./config";
+// import config from "./config";
 import Dropdown from "react-dropdown";
-import formatNum from "./format-number";
+// import formatNum from "./format-number";
 
 import axios from "axios";
 
@@ -19,7 +19,7 @@ import UserImg from "../assets/images/user-img-placeholder.jpeg";
 
 ReactFC.fcRoot(FusionCharts, Charts, Maps, BrazilRegion);
 
-const url = `https://sheets.googleapis.com/v4/spreadsheets/${config.spreadsheetId}/values:batchGet?ranges=Sheet1&majorDimension=ROWS&key=${config.apiKey}`;
+// const url = `https://sheets.googleapis.com/v4/spreadsheets/${config.spreadsheetId}/values:batchGet?ranges=Sheet1&majorDimension=ROWS&key=${config.apiKey}`;
 const BRAZIL_MAP_ID = {
     AC: "001",
     AL: "002",
@@ -88,13 +88,21 @@ class App extends Component {
                     total_revenue: data.total_revenue,
                     total_customer: data.total_customer,
                     total_order: data.total_order,
-                    top_products: JSON.parse(data.top_products.replaceAll("\'","\"")),
-                    top_customers: JSON.parse(data.top_customers.replaceAll("\'","\"")),
+                    top_products: JSON.parse(
+                        data.top_products.replaceAll("'", '"')
+                    ),
+                    top_customers: JSON.parse(
+                        data.top_customers.replaceAll("'", '"')
+                    ),
                 });
                 const trend_seller = [];
                 const trend_region = [];
-                const data_trend_seller = JSON.parse(data.trend_seller.replaceAll("\'","\""));
-                const data_trend_region = JSON.parse(data.trend_region.replaceAll("\'","\""));
+                const data_trend_seller = JSON.parse(
+                    data.trend_seller.replaceAll("'", '"')
+                );
+                const data_trend_region = JSON.parse(
+                    data.trend_region.replaceAll("'", '"')
+                );
                 for (let i = 0; i < 5; i++) {
                     trend_seller.push({
                         label: data_trend_seller[i].nama,
