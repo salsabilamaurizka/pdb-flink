@@ -54,17 +54,6 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            // items: [],
-            // dropdownOptions: [],
-            // selectedValue: null,
-            // amRevenue: null,
-            // ebRevenue: null,
-            // etRevenue: null,
-            // totalRevenue: null,
-            // productViews: null,
-            // purchaseRate: " ",
-            // checkoutRate: " ",
-            // abandonedRate: " ",
             ordersTrendStore: [],
             ordersTrendRegion: [],
             total_revenue: null,
@@ -129,297 +118,12 @@ class App extends Component {
             });
     };
 
-    // getData = (arg) => {
-    //     // google sheets data
-    //     const arr = this.state.items;
-    //     const arrLen = arr.length;
-
-    //     // kpi's
-    //     // amazon revenue
-    //     let amRevenue = 0;
-    //     //ebay revenue
-    //     let ebRevenue = 0;
-    //     // etsy revenue
-    //     let etRevenue = 0;
-    //     // total revenue
-    //     let totalRevenue = 0;
-    //     // product views
-    //     let productViews = 0;
-    //     // purchase rate
-    //     let purchaseRate = 0;
-    //     // checkout rate
-    //     let checkoutRate = 0;
-    //     // abandoned rate
-    //     let abandonedRate = 0;
-    //     // order trend by brand
-    //     let ordersTrendStore = [];
-    //     // order trend by region
-    //     let ordersTrendRegion = [];
-    //     let orderesTrendrr = 0;
-    //     let orderesTrendap = 0;
-    //     let orderesTrendam = 0;
-    //     let orderesTrendpa = 0;
-    //     let orderesTrendac = 0;
-    //     let orderesTrendro = 0;
-    //     let orderesTrendmt = 0;
-    //     let orderesTrendto = 0;
-    //     let orderesTrendma = 0;
-    //     let orderesTrendpi = 0;
-    //     let orderesTrendce = 0;
-    //     let orderesTrendrn = 0;
-    //     let orderesTrendpb = 0;
-    //     let orderesTrendpe = 0;
-    //     let orderesTrendal = 0;
-    //     let orderesTrendse = 0;
-    //     let orderesTrendba = 0;
-    //     let orderesTrendgo = 0;
-    //     let orderesTrenddf = 0;
-    //     let orderesTrendmg = 0;
-    //     let orderesTrendms = 0;
-    //     let orderesTrendes = 0;
-    //     let orderesTrendrj = 0;
-    //     let orderesTrendsp = 0;
-    //     let orderesTrendpr = 0;
-    //     let orderesTrendsc = 0;
-    //     let orderesTrendrs = 0;
-
-    //     let selectedValue = null;
-
-    //     for (let i = 0; i < arrLen; i++) {
-    //         if (arg === arr[i]["month"]) {
-    //             if (arr[i]["source"] === "AM") {
-    //                 amRevenue += parseInt(arr[i].revenue);
-    //                 ordersTrendStore.push({
-    //                     label: "Amazon",
-    //                     value: arr[i].orders,
-    //                     displayValue: `${arr[i].orders} orders`,
-    //                 });
-    //             } else if (arr[i]["source"] === "EB") {
-    //                 ebRevenue += parseInt(arr[i].revenue);
-    //                 ordersTrendStore.push({
-    //                     label: "Ebay",
-    //                     value: arr[i].orders,
-    //                     displayValue: `${arr[i].orders} orders`,
-    //                 });
-    //             } else if (arr[i]["source"] === "ET") {
-    //                 etRevenue += parseInt(arr[i].revenue);
-    //                 ordersTrendStore.push({
-    //                     label: "Etsy",
-    //                     value: arr[i].orders,
-    //                     displayValue: `${arr[i].orders} orders`,
-    //                 });
-    //             }
-    //             productViews += parseInt(arr[i].product_views);
-    //             purchaseRate += parseInt(arr[i].purchase_rate / 3);
-    //             checkoutRate += parseInt(arr[i].checkout_rate / 3);
-    //             abandonedRate += parseInt(arr[i].abandoned_rate / 3);
-    //             orderesTrendrr += parseInt(arr[i].orders_rr);
-    //             orderesTrendap += parseInt(arr[i].orders_ap);
-    //             orderesTrendam += parseInt(arr[i].orders_am);
-    //             orderesTrendpa += parseInt(arr[i].orders_pa);
-    //             orderesTrendac += parseInt(arr[i].orders_ac);
-    //             orderesTrendro += parseInt(arr[i].orders_ro);
-    //             orderesTrendmt += parseInt(arr[i].orders_mt);
-    //             orderesTrendto += parseInt(arr[i].orders_to);
-    //             orderesTrendma += parseInt(arr[i].orders_ma);
-    //             orderesTrendpi += parseInt(arr[i].orders_pi);
-    //             orderesTrendce += parseInt(arr[i].orders_ce);
-    //             orderesTrendrn += parseInt(arr[i].orders_rn);
-    //             orderesTrendpb += parseInt(arr[i].orders_pb);
-    //             orderesTrendpe += parseInt(arr[i].orders_pe);
-    //             orderesTrendal += parseInt(arr[i].orders_al);
-    //             orderesTrendse += parseInt(arr[i].orders_se);
-    //             orderesTrendba += parseInt(arr[i].orders_ba);
-    //             orderesTrendgo += parseInt(arr[i].orders_go);
-    //             orderesTrenddf += parseInt(arr[i].orders_df);
-    //             orderesTrendmg += parseInt(arr[i].orders_mg);
-    //             orderesTrendms += parseInt(arr[i].orders_ms);
-    //             orderesTrendes += parseInt(arr[i].orders_es);
-    //             orderesTrendrj += parseInt(arr[i].orders_rj);
-    //             orderesTrendsp += parseInt(arr[i].orders_sp);
-    //             orderesTrendpr += parseInt(arr[i].orders_pr);
-    //             orderesTrendsc += parseInt(arr[i].orders_sc);
-    //             orderesTrendrs += parseInt(arr[i].orders_rs);
-    //         }
-    //     }
-
-    //     totalRevenue = amRevenue + ebRevenue + etRevenue;
-    //     ordersTrendRegion.push(
-    //         {
-    //             id: "01",
-    //             shortLabel: "AC",
-    //             value: orderesTrendac,
-    //         },
-    //         {
-    //             id: "02",
-    //             shortLabel: "AL",
-    //             value: orderesTrendal,
-    //         },
-    //         {
-    //             id: "03",
-    //             shortLabel: "AP",
-    //             value: orderesTrendap,
-    //         },
-    //         {
-    //             id: "04",
-    //             shortLabel: "AM",
-    //             value: orderesTrendam,
-    //         },
-    //         {
-    //             id: "05",
-    //             value: orderesTrendba,
-    //         },
-    //         {
-    //             id: "06",
-    //             value: orderesTrendce,
-    //         },
-    //         {
-    //             id: "07",
-    //             value: orderesTrenddf,
-    //         },
-    //         {
-    //             id: "08",
-    //             value: orderesTrendes,
-    //         },
-    //         {
-    //             id: "09",
-    //             value: orderesTrendgo,
-    //         },
-    //         {
-    //             id: "10",
-    //             value: orderesTrendma,
-    //         },
-    //         {
-    //             id: "11",
-    //             value: orderesTrendmt,
-    //         },
-    //         {
-    //             id: "12",
-    //             value: orderesTrendms,
-    //         },
-    //         {
-    //             id: "13",
-    //             value: orderesTrendmg,
-    //         },
-    //         {
-    //             id: "14",
-    //             value: orderesTrendpa,
-    //         },
-    //         {
-    //             id: "15",
-    //             value: orderesTrendpb,
-    //         },
-    //         {
-    //             id: "16",
-    //             value: orderesTrendpr,
-    //         },
-    //         {
-    //             id: "17",
-    //             value: orderesTrendpe,
-    //         },
-    //         {
-    //             id: "18",
-    //             value: orderesTrendpi,
-    //         },
-    //         {
-    //             id: "19",
-    //             value: orderesTrendrj,
-    //         },
-    //         {
-    //             id: "20",
-    //             value: orderesTrendrn,
-    //         },
-    //         {
-    //             id: "21",
-    //             value: orderesTrendrs,
-    //         },
-    //         {
-    //             id: "22",
-    //             value: orderesTrendro,
-    //         },
-    //         {
-    //             id: "23",
-    //             value: orderesTrendrr,
-    //         },
-    //         {
-    //             id: "24",
-    //             value: orderesTrendsc,
-    //         },
-    //         {
-    //             id: "25",
-    //             value: orderesTrendsp,
-    //         },
-    //         {
-    //             id: "26",
-    //             value: orderesTrendse,
-    //         },
-    //         {
-    //             id: "27",
-    //             value: orderesTrendto,
-    //         }
-    //     );
-
-    //     selectedValue = arg;
-
-    //     // setting state
-    //     this.setState({
-    //         amRevenue: formatNum(amRevenue),
-    //         ebRevenue: formatNum(ebRevenue),
-    //         etRevenue: formatNum(etRevenue),
-    //         totalRevenue: formatNum(totalRevenue),
-    //         productViews: formatNum(productViews),
-    //         purchaseRate: purchaseRate,
-    //         checkoutRate: checkoutRate,
-    //         abandonedRate: abandonedRate,
-    //         ordersTrendStore: ordersTrendStore,
-    //         ordersTrendRegion: ordersTrendRegion,
-    //         selectedValue: selectedValue,
-    //         total_revenue: formatNum(this.state.total_revenue),
-    //         total_customer: formatNum(this.state.total_customer),
-    //     });
-    // };
 
     updateDashboard = (event) => {
         this.getData(event.value);
         this.setState({ selectedValue: event.value });
     };
 
-    // componentDidMount() {
-    //     fetch(url)
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             let batchRowValues = data.valueRanges[0].values;
-
-    //             const rows = [];
-    //             for (let i = 1; i < batchRowValues.length; i++) {
-    //                 let rowObject = {};
-    //                 for (let j = 0; j < batchRowValues[i].length; j++) {
-    //                     rowObject[batchRowValues[0][j]] = batchRowValues[i][j];
-    //                 }
-    //                 rows.push(rowObject);
-    //             }
-
-    //             // dropdown options
-    //             let dropdownOptions = [];
-
-    //             for (let i = 0; i < rows.length; i++) {
-    //                 dropdownOptions.push(rows[i].month);
-    //             }
-
-    //             dropdownOptions = Array.from(
-    //                 new Set(dropdownOptions)
-    //             ).reverse();
-
-    //             this.setState(
-    //                 {
-    //                     items: rows,
-    //                     dropdownOptions: dropdownOptions,
-    //                     selectedValue: "Jan 2019",
-    //                 },
-    //                 () => this.getData("Jan 2019")
-    //             );
-    //         });
-    // }
 
     render() {
         console.log(this.state.ordersTrendRegion);
@@ -432,7 +136,7 @@ class App extends Component {
                     </Container>
                     <Container className="navbar-nav ml-auto">
                         <Container className="user-detail-section">
-                            <span className="pr-2">Hi, Sean</span>
+                            <span className="pr-2">Hi, Admin</span>
                             <span className="img-container">
                                 <img
                                     src={UserImg}
@@ -448,13 +152,6 @@ class App extends Component {
                 <Nav className="navbar fixed-top nav-secondary is-dark is-light-text">
                     <Container className="text-medium">Summary</Container>
                     <Container className="navbar-nav ml-auto">
-                        <Dropdown
-                            className="pr-2 custom-dropdown"
-                            options={this.state.dropdownOptions}
-                            onChange={this.updateDashboard}
-                            value={this.state.selectedValue}
-                            placeholder="Select an option"
-                        />
                     </Container>
                 </Nav>
 
@@ -486,7 +183,6 @@ class App extends Component {
                                 </Container>
 
                                 <Container className="card-value pt-4 text-x-large">
-                                    <span className="text-large pr-1">$</span>
                                     {this.state.total_order}
                                 </Container>
                             </Container>
@@ -501,7 +197,6 @@ class App extends Component {
                                 </Container>
 
                                 <Container className="card-value pt-4 text-x-large">
-                                    <span className="text-large pr-1">$</span>
                                     {this.state.total_customer}
                                 </Container>
                             </Container>
@@ -514,11 +209,16 @@ class App extends Component {
                             <Container className="card grid-card is-card-dark">
                                 <Container className="card-heading mb-3">
                                     <Container className="is-dark-text-light letter-spacing text-small">
-                                        Top Product
+                                        Top Products
                                     </Container>
                                 </Container>
                                 <Container className="card-value pt-4">
                                     <table class="table table-sm table-dark">
+                                        <thead>
+                                            <th></th>
+                                            <th>Product</th>
+                                            <th>Sold</th>
+                                        </thead>
                                         <tbody>
                                             {this.state.top_products.map(
                                                 (val, idx) => (
@@ -543,11 +243,16 @@ class App extends Component {
                             <Container className="card grid-card is-card-dark">
                                 <Container className="card-heading mb-3">
                                     <Container className="is-dark-text-light letter-spacing text-small">
-                                        Top Customer
+                                        Top Customers
                                     </Container>
                                 </Container>
                                 <Container className="card-value pt-4">
                                     <table class="table table-sm table-dark">
+                                        <thead>
+                                            <th></th>
+                                            <th>Customer</th>
+                                            <th>Purchase</th>
+                                        </thead>
                                         <tbody>
                                             {this.state.top_customers.map(
                                                 (val, idx) => (
@@ -621,12 +326,12 @@ class App extends Component {
                                                     color: [
                                                         {
                                                             minValue: "0",
-                                                            maxvalue: "50",
+                                                            maxvalue: "10000",
                                                             code: "#EDF8B1",
                                                         },
                                                         {
-                                                            minvalue: "51",
-                                                            maxvalue: "100",
+                                                            minvalue: "10001",
+                                                            maxvalue: "60000",
                                                             code: "#18D380",
                                                         },
                                                     ],
