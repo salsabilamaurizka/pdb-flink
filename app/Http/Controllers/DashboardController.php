@@ -39,10 +39,10 @@ class DashboardController extends Controller
     public function store(Request $request)
     {
         $data = $this->validateRequest($request);
-        $data['top_products'] = str_replace(["\"","\\"], ["'",""], $data['top_products']);
-        $data['top_customers'] = str_replace(["\"","\\"], ["'",""], $data['top_customers']);
-        $data['trend_seller'] = str_replace(["\"","\\"], ["'",""], $data['trend_seller']);
-        $data['trend_region'] = str_replace(["\"","\\"], ["'",""], $data['trend_region']);
+        $data['top_products'] = str_replace(["\"","\\'"], ["'",""], $data['top_products']);
+        $data['top_customers'] = str_replace(["\"","\\'"], ["'",""], $data['top_customers']);
+        $data['trend_seller'] = str_replace(["\"","\\'"], ["'",""], $data['trend_seller']);
+        $data['trend_region'] = str_replace(["\"","\\'"], ["'",""], $data['trend_region']);
         $dashboard = Dashboard::create($data);
         return response()->json([
             'status'=>'Dashboard data has been stored succesfully',
